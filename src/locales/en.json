@@ -1,0 +1,11 @@
+{
+  "header_menu": {
+    "home": "Home",
+    "about": "About",
+    "ministries": "Ministries",
+    "gallery": "Gallery",
+    "news_events": "News & events",
+    "testimonials": "Testimonials",
+    "donate": "Donate"
+  }
+}

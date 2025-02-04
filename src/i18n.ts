@@ -9,12 +9,14 @@ export const SUPPORT_LOCALES = ["en", "ua"];
 
 const DEFAULT_LOCAL = "en";
 
-export function setupI18n(options = { locale: DEFAULT_LOCAL }) {
-  const i18n = createI18n(options);
-  setI18nLanguage(i18n, options.locale);
+const i18nConfig = {
+  legacy: false,
+  locale: DEFAULT_LOCAL,
+  fallbackLocale: DEFAULT_LOCAL,
+  messages: { en, ua },
+};
 
-  return i18n;
-}
+export const i18n = createI18n<[MessageSchema], "en" | "ua">(i18nConfig);
 
 export function setI18nLanguage(i18n: I18n, locale: string) {
   if (i18n.mode === "legacy") {
@@ -22,36 +24,38 @@ export function setI18nLanguage(i18n: I18n, locale: string) {
   } else {
     (i18n.global.locale as WritableComputedRef<string>).value = locale;
   }
-  const _document = document.querySelector("html") as HTMLButtonElement | null;
-  _document && _document.setAttribute("lang", locale);
+
+  document.documentElement.setAttribute("lang", locale);
 }
+
 
 export async function loadLocaleMessages(i18n: I18n, locale = DEFAULT_LOCAL) {
-  const messages = await import(
-    /* webpackChunkName: "locale-[request]" */ `./locales/${locale}.json`
-  );
+  if (!SUPPORT_LOCALES.includes(locale)) return;
 
-  i18n.global.setLocaleMessage(locale, messages.default);
+  try {
+    const messages = await import(
+      /* @vite-ignore */
+      `./locales/${locale}.json`
+    );
 
-  return nextTick();
+    i18n.global.setLocaleMessage(locale, messages.default);
+    await nextTick();
+  } catch (error) {
+    console.error(`Error loading locale ${locale}:`, error);
+  }
 }
 
-const i18nConfig = {
-  locale: DEFAULT_LOCAL,
-  fallbackLocale: DEFAULT_LOCAL,
-  messages: {
-    en,
-    ua
-  },
-};
-console.log(i18nConfig)
-export const i18n = createI18n<[MessageSchema], "en" | "ua">(i18nConfig);
-export const setLocal = (local = DEFAULT_LOCAL) => {
-  localStorage.setItem("locale", local);
-  setI18nLanguage(i18n, local);
-};
-const savedLocal = localStorage.getItem("locale") as string;
-const currentLocal = SUPPORT_LOCALES.includes(savedLocal)
-  ? savedLocal
-  : DEFAULT_LOCAL;
+export async function setLocal(locale = DEFAULT_LOCAL) {
+  if (!SUPPORT_LOCALES.includes(locale)) {
+    locale = DEFAULT_LOCAL;
+  }
+
+  localStorage.setItem("locale", locale);
+  await loadLocaleMessages(i18n, locale);
+  setI18nLanguage(i18n, locale);
+}
+
+const savedLocal = localStorage.getItem("locale");
+const currentLocal = SUPPORT_LOCALES.includes(savedLocal!) ? savedLocal! : DEFAULT_LOCAL;
 setLocal(currentLocal);
+
