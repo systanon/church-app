@@ -20,4 +20,7 @@ export default defineComponent({
 </template>
 
 <style lang="scss" scoped>
+.home-page {
+  height: 100%;
+}
 </style>
