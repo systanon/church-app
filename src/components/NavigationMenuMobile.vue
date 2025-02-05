@@ -1,10 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { byAuthorized, mainMenu, NavigationMenu } from "@/config/navigation";
-
+import UIButtonIcon from '@/components/ui/UIButtonIcon.vue' 
 
 export default defineComponent({
   name: "NavigationMenuMobile",
+  components: {
+    UIButtonIcon
+  },
   data() {
     return {
       isNavOpen: false
@@ -25,9 +28,9 @@ export default defineComponent({
 </script>
 
 <template>
-  <button class="menu-button" @click="toggleNav">open menu</button>
+  <UIButtonIcon class="menu-button" @click="toggleNav" iconName="burger-menu"/>
   <aside class="app-navigation" :class="{ open: isNavOpen }">
-    <button @click="toggleNav">close</button>
+    <UIButtonIcon @click="toggleNav" iconName="close-square"/>
     <ul>
       <li v-for="{ path, i18n_key } in navigationList" :key="path"
         :class="['navigation-menu__item', { _active: $route.path === path }]" @click="$router.push(path)">
@@ -41,8 +44,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .menu-button {
   padding: 10px;
-  background: #007bff;
-  color: white;
+  // background-color: transparent;
   border: none;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;
