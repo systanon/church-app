@@ -41,9 +41,10 @@ export default defineComponent({
 
 <style scoped>
 .menu-container {
-  position: relative;
-  width: 20vw;
-  height: 100vh;
+  /* position: relative;
+  width: 20vw; */
+  /* height: 100%; */
+  /* z-index: 10; */
 }
 
 .menu-button {
@@ -64,8 +65,8 @@ export default defineComponent({
   align-items: end;
   gap: 1em;
   height: 100%;
-  width: 100%;
-  position: absolute;
+  width: 20%;
+  position: fixed;
   top: 0;
   left: 0;
   transform: translateX(-100%);

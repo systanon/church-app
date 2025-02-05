@@ -6,20 +6,20 @@ import NavigationMenuMobile from './NavigationMenuMobile.vue';
 
 export default defineComponent({
   name: "AppHeader",
-  emits: ['handleClick', 'setCurrentSymbol'],
+  emits: ['updateHeight'],
   components: {
     NavigationMenu,
     NavigationMenuMobile
-  }
+  },
 })
 </script>
 
 <template>
-  <header>
+  <!-- <header class="app-header" > -->
     <!-- <NavigationMenu/> -->
     <NavigationMenuMobile/>
 
-  </header>
+  <!-- </header> -->
   
 </template> 
 
