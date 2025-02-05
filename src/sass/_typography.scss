@@ -1,0 +1,53 @@
+$font-sizes: (
+  "h1": 4rem,
+  "h2": 3rem,
+  "h3": 2.5rem,
+  "h4": 2rem,
+  "h5": 1.5rem,
+  "h6": 1.25rem,
+  "body": 1rem,
+  "small": 0.875rem
+);
+
+@mixin typography($type) {
+  $size: map-get($font-sizes, $type);
+
+  @if $size {
+    font-size: $size;
+    font-weight: bold;
+    line-height: 1.2;
+  } @else {
+    @warn "Font size '#{$type}' not found in $font-sizes map!";
+  }
+}
+
+@mixin responsive-text($min-size, $max-size, $breakpoint: 768px) {
+  font-size: $max-size;
+
+  @media screen and (max-width: $breakpoint) {
+    font-size: $min-size;
+  }
+}
+
+
+
+h1 {
+  @include typography("h1");
+}
+
+h2 {
+  @include typography("h2");
+}
+
+h3 {
+  @include typography("h3");
+}
+
+p {
+  @include typography("body");
+  color: #333;
+}
+
+.adaptive-title {
+  @include responsive-text(2rem, 4rem);
+}

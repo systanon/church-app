@@ -1,4 +1,11 @@
 {
+  "header": {
+    "home_page": {
+      "title": "Welcome",
+      "sub-title": "To our church"
+    }
+
+  },
   "header_menu": {
     "home": "Home",
     "about": "About",

@@ -14,10 +14,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `
-        @use "@/sass/style.scss" as *;
-        @import "./src/css/reset.css";
-        `
+        additionalData: '@use "@/sass/style.scss" as *;'
       }
     }
   }

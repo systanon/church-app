@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, provide, ref } from 'vue'
+import { defineComponent } from 'vue'
 import NavigationMenu from './NavigationMenu.vue';
 import NavigationMenuMobile from './NavigationMenuMobile.vue';
 import { useInjectWindowResize } from '../composables/useWindowResize';

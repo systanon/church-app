@@ -18,7 +18,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <header>
+  <nav>
+    <a> LOGO </a>
     <ul>
       <li
       v-for="{ path, i18n_key } in navigationList"
@@ -26,10 +27,10 @@ export default defineComponent({
       :class="['navigation-menu__item', { _active: $route.path === path }]"
       @click="$router.push(path)"
     >
-      <h2>{{ $t(`header_menu.${i18n_key}`) }}</h2>
+      <a>{{ $t(`header_menu.${i18n_key}`) }}</a>
     </li>
     </ul>
-  </header>
+  </nav>
 </template>
 
 <style scoped>

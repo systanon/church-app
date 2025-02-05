@@ -1,32 +1,48 @@
 <script lang="ts">
 import { defineComponent, inject, type Ref } from 'vue'
-import NavigationMenu from './NavigationMenu.vue';
+// import NavigationMenu from './NavigationMenu.vue';
+import { byAuthorized, mainMenu, NavigationMenu } from "@/config/navigation";
 
 
 export default defineComponent({
   name: "NavigationMenuMobile",
-  components: {
-    NavigationMenu
-  },
+  // components: {
+  //   NavigationMenu
+  // },
   setup() {
     const isNavOpen = inject<Ref<boolean>>("isNavOpen");
-    const toggleNav = inject<() => void>("toggleNav");
-    return {
-      isNavOpen,
-      toggleNav,
-    };
-  },
+      const toggleNav = inject<() => void>("toggleNav");
+      return {
+        isNavOpen,
+        toggleNav,
+      };
+    },
+    computed: {
+        navigationList(): NavigationMenu {
+          return mainMenu.filter(byAuthorized(true));
+        },
+        // localLangOptions() {
+        //   return langOptions;
+        // },
+      },
 })
 </script>
 
 <template>
-   <div class="menu-container">
     <button class="menu-button" @click="toggleNav">open menu</button>
     <aside class="app-menu" :class="{ open: isNavOpen }">
       <button @click="toggleNav">close</button>
-      <NavigationMenu />
+      <ul>
+      <li
+      v-for="{ path, i18n_key } in navigationList"
+      :key="path"
+      :class="['navigation-menu__item', { _active: $route.path === path }]"
+      @click="$router.push(path)"
+    >
+      <a>{{ $t(`header_menu.${i18n_key}`) }}</a>
+    </li>
+    </ul>
     </aside>
-  </div>
 </template> 
 
 

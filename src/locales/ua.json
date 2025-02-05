@@ -1,4 +1,11 @@
 {
+  "header": {
+    "home_page": {
+      "title": "Вітаємо",
+      "sub-title": "У нащій церкві"
+    }
+
+  },
   "header_menu": {
     "home": "Головна",
     "about": "Про нас",
