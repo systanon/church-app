@@ -14,5 +14,11 @@ const routes: Array<RouteRecordRaw> = [
     meta: { accessMode: 'public' },
     component: () => import('@/views/AboutPage.vue'),
   },
+  {
+    path: "/:patchMath(.*)*",
+    name: "not-found",
+    meta: { accessMode: "public" },
+    component: () => import("@/views/NotFoundPage.vue"),
+  },
 ];
 export { routes };
