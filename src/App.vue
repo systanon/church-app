@@ -1,17 +1,13 @@
 <script lang="ts">
-import { defineComponent, ref  } from "vue";
+import { defineComponent  } from "vue";
 import { useWindowResize } from "@/composables/useWindowResize";
 
-import AppHeader  from "@/components/AppHeader.vue"
 export default defineComponent({
- components: {
-  AppHeader
- },
+  name:"App",
  setup() {
-    const headerRef = ref<HTMLElement | null>(null);
-    const { headerHeight, appHeight, appWidth } = useWindowResize(headerRef);
+    const { appHeight, appWidth } = useWindowResize();
 
-    return { headerRef, headerHeight, appHeight, appWidth };
+    return { appHeight, appWidth };
   },
 
 
@@ -19,10 +15,6 @@ export default defineComponent({
 </script>
 
 <template>
-  <header ref="headerRef">
-    <AppHeader/>
-
-  </header>
   <router-view/>
 </template>
 

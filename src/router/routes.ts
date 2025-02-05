@@ -1,12 +1,19 @@
 import HomePage from '@/views/HomePage.vue';
+import HomeLayout from "@/layouts/HomeLayout.vue";
 import type { RouteRecordRaw } from 'vue-router';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'HomePage',
+    component: HomeLayout,
     meta: { accessMode: 'public' },
-    component: HomePage,
+    children: [
+      {
+        name: 'HomePage',
+        path: "",
+        component: HomePage
+      }
+    ]
   },
   {
     path: '/about',

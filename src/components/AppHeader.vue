@@ -1,25 +1,27 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, provide, ref } from 'vue'
 import NavigationMenu from './NavigationMenu.vue';
 import NavigationMenuMobile from './NavigationMenuMobile.vue';
+import { useInjectWindowResize } from '../composables/useWindowResize';
 
 
 export default defineComponent({
   name: "AppHeader",
-  emits: ['updateHeight'],
   components: {
     NavigationMenu,
     NavigationMenuMobile
   },
+  setup() {
+    const { appWidth } = useInjectWindowResize();
+    return { appWidth };
+  },
+
 })
 </script>
 
 <template>
-  <!-- <header class="app-header" > -->
-    <!-- <NavigationMenu/> -->
-    <NavigationMenuMobile/>
-
-  <!-- </header> -->
+    <NavigationMenu v-if="appWidth > 780"/>
+    <NavigationMenuMobile v-if="appWidth <= 780"/>
   
 </template> 
 

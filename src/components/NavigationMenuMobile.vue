@@ -1,29 +1,20 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, inject, type Ref } from 'vue'
 import NavigationMenu from './NavigationMenu.vue';
 
 
 export default defineComponent({
   name: "NavigationMenuMobile",
-  emits: ['handleClick', 'setCurrentSymbol'],
   components: {
     NavigationMenu
   },
-  props: {
-    isNavOpen: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data() {
+  setup() {
+    const isNavOpen = inject<Ref<boolean>>("isNavOpen");
+    const toggleNav = inject<() => void>("toggleNav");
     return {
-      isNavOpen: false
-    }
-  },
-  methods: {
-    toggleNav() {
-      this.isNavOpen = !this.isNavOpen;
-    }
+      isNavOpen,
+      toggleNav,
+    };
   },
 })
 </script>
@@ -40,13 +31,6 @@ export default defineComponent({
 
 
 <style scoped>
-.menu-container {
-  /* position: relative;
-  width: 20vw; */
-  /* height: 100%; */
-  /* z-index: 10; */
-}
-
 .menu-button {
   padding: 10px;
   background: #007bff;
@@ -71,6 +55,7 @@ export default defineComponent({
   left: 0;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
+  z-index: 10;
 }
 
 .app-menu.open {
