@@ -1,0 +1,27 @@
+@use './typography' as *;
+@use './colors' as *;
+
+
+h1 {
+  @include typography("h1");
+  color: $primary-color;
+}
+
+h2 {
+  @include typography("h2");
+  color: $primary-color;
+}
+
+h3 {
+  @include typography("h3");
+  color: $primary-color;
+}
+
+p {
+  @include typography("body");
+  color: $primary-color;
+}
+
+.adaptive-title {
+  @include responsive-text(2rem, 4rem);
+}
