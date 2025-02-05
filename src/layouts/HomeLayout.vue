@@ -1,26 +1,11 @@
 <script lang="ts">
-  import { defineComponent, ref, provide } from 'vue';
+  import { defineComponent } from 'vue';
   import AppHeader from '../components/AppHeader.vue';
   export default defineComponent({
     name: 'HomeLayout',
     components: {
       AppHeader,
-    },
-    setup() {
-      const isNavOpen = ref<boolean>(false);
-
-      const toggleNav = () => {
-        isNavOpen.value = !isNavOpen.value;
-      };
-
-      provide('isNavOpen', isNavOpen);
-      provide('toggleNav', toggleNav);
-
-      return {
-        isNavOpen,
-        toggleNav,
-      };
-    },
+    }
   });
 </script>
 
@@ -44,6 +29,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('@/assets/bg-images/home.png');
+    &__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
   }
 
   @include media-query('mobile') {
