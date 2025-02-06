@@ -44,10 +44,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .menu-button {
   padding: 10px;
-  // background-color: transparent;
-  border: none;
-  cursor: pointer;
+  background-color: transparent;
   transition: opacity 0.3s ease-in-out;
+  color: $primary-color;
 }
 
 .app-navigation {

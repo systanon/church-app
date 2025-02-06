@@ -23,7 +23,8 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .ui-icon {
-  height: 1.5rem;
-  width: 1.5rem;
+  cursor: pointer;
+  height: 2rem;
+  width: 2rem;
 }
 </style>

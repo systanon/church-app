@@ -24,7 +24,6 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .ui-button-icon {
-  padding: 1rem;
   border: none;
   display: inline-flex;
   align-items: center;
