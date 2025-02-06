@@ -18,20 +18,41 @@ export default defineComponent({
 </script>
 
 <template>
-  <nav>
-    <a> LOGO </a>
-    <ul>
+  <nav class="app-nav">
+    <a class="app-nav__logo"> LOGO </a>
+    <ul class="nav-menu">
       <li
       v-for="{ path, i18n_key } in navigationList"
       :key="path"
-      :class="['navigation-menu__item', { _active: $route.path === path }]"
+      :class="['nav-menu__item', { _active: $route.path === path }]"
       @click="$router.push(path)"
     >
-      <a>{{ $t(`header_menu.${i18n_key}`) }}</a>
+      <a class="nav-menu__item-text">{{ $t(`header_menu.${i18n_key}`) }}</a>
     </li>
     </ul>
   </nav>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.app-nav {
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+
+  &__logo{
+    color: $primary-color;
+    margin-right: 2rem;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 1rem;
+  }
+  .nav-menu__item {
+    color: $primary-color;
+    cursor: pointer;
+    &-text {
+      cursor: pointer;
+    }
+  }
+}
 </style>

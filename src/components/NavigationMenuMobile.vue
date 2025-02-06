@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { byAuthorized, mainMenu, NavigationMenu } from "@/config/navigation";
-import UIButtonIcon from '@/components/ui/UIButtonIcon.vue' 
+import UIButtonIcon from '@/components/ui/UIButtonIcon.vue'
 
 export default defineComponent({
   name: "NavigationMenuMobile",
@@ -28,13 +28,13 @@ export default defineComponent({
 </script>
 
 <template>
-  <UIButtonIcon class="menu-button" @click="toggleNav" iconName="burger-menu"/>
+  <UIButtonIcon class="menu-button" @click="toggleNav" iconName="burger-menu" />
   <aside class="app-navigation" :class="{ open: isNavOpen }">
-    <UIButtonIcon @click="toggleNav" iconName="close-square"/>
-    <ul>
+    <UIButtonIcon @click="toggleNav" iconName="close-square" />
+    <ul class="navigation-menu">
       <li v-for="{ path, i18n_key } in navigationList" :key="path"
         :class="['navigation-menu__item', { _active: $route.path === path }]" @click="$router.push(path)">
-        <span class="app-navigation__text">{{ $t(`header_menu.${i18n_key}`) }}</span>
+        <span class="navigation-menu__item-text">{{ $t(`header_menu.${i18n_key}`) }}</span>
       </li>
     </ul>
   </aside>
@@ -65,8 +65,15 @@ export default defineComponent({
   transition: transform 0.3s ease-in-out;
   z-index: 10;
 
-  &__text {
+  .navigation-menu {
     color: $text-color;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__item {
+      cursor: pointer;
+    }
   }
 }
 
