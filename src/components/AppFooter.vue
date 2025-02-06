@@ -91,8 +91,21 @@ export default defineComponent({
 @include media-query('desktop') {
   .app-footer {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    text-align: center;
+    padding: 2rem 0;
+    grid-template-columns: repeat(16, 1fr);
+    text-align: left;
+    &__about {
+      grid-column: 2/ 6;
+    }
+    &__links {
+      grid-column: 7/ 9;
+    }
+    &__follow {
+      grid-column: 10/ 13;
+    }
+    &__contact {
+      grid-column: 14/ 16;
+    }
   }
 
   .app-footer__copyright {
@@ -105,9 +118,7 @@ export default defineComponent({
 @include media-query('large-desktop') {
   .app-footer {
     display: grid;
-    padding: 2rem 0;
     grid-template-columns: repeat(20, 1fr);
-    text-align: left;
     gap: 1.875rem;
 
     &__about {
