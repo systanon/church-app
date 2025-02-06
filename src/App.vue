@@ -17,8 +17,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <router-view />
-  <AppFooter />
+  <router-view class="app-router" />
+  <AppFooter class="app-footer" />
 </template>
 
 <style lang="scss">
@@ -26,6 +26,11 @@ html,
 body,
 #app {
   height: 100%;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 body {
