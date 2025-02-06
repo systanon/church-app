@@ -28,7 +28,11 @@ export default defineComponent({
 </script>
 
 <template>
-  <UIButtonIcon class="menu-button" @click="toggleNav" iconName="burger-menu" />
+  <nav class="app-nav">
+    <UIButtonIcon class="app-nav__burger-menu" @click="toggleNav" iconName="burger-menu" />
+    <a class="app-nav__logo">LOGO </a>
+
+  </nav>
   <aside class="app-navigation" :class="{ open: isNavOpen }">
     <UIButtonIcon @click="toggleNav" iconName="close-square" />
     <ul class="navigation-menu">
@@ -42,11 +46,18 @@ export default defineComponent({
 
 
 <style lang="scss" scoped>
-.menu-button {
-  padding: 10px;
-  background-color: transparent;
-  transition: opacity 0.3s ease-in-out;
-  color: $primary-color;
+.app-nav {
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  &__burger-menu {
+    background-color: transparent;
+    transition: opacity 0.3s ease-in-out;
+    color: $primary-color;
+  }
+  &__logo {
+    padding-left: 2rem;
+  }
 }
 
 .app-navigation {

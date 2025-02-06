@@ -11,8 +11,10 @@
     "about": "Про нас",
     "ministries": "Служіння",
     "gallery": "Галерея",
-    "news_events": "Новини та події",
-    "testimonials": "Відгуки"
+    "news": "Новини",
+    "events": "Події",
+    "testimonials": "Відгуки",
+    "donate": "Donate"
   },
   "footer": {
     "about": {

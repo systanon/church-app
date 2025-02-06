@@ -12,16 +12,16 @@ export default defineComponent({
     NavigationMenuMobile
   },
   setup() {
-    const { appWidth } = useInjectWindowResize();
-    return { appWidth };
+    const { isTablet, isMobile } = useInjectWindowResize();
+    return { isTablet, isMobile};
   },
 
 })
 </script>
 
 <template>
-    <NavigationMenu v-if="appWidth > 780"/>
-    <NavigationMenuMobile v-if="appWidth <= 780"/>
+  <NavigationMenuMobile v-if="isMobile || isTablet"/>
+  <NavigationMenu v-else/>
   
 </template> 
 
