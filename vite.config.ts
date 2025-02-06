@@ -43,5 +43,6 @@ export default defineConfig( async ({}) => {
         },
       },
     },
+    base: '/church-app/'
   }
 });
