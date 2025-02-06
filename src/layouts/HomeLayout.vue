@@ -29,10 +29,13 @@
     background-position: center;
     background-repeat: no-repeat;
     background-image: url('@/assets/bg-images/home.png');
+    color: $primary-color;
     &__text {
+      height: 75%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
 
     }
   }
