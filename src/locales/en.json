@@ -4,7 +4,6 @@
       "title": "Welcome",
       "sub-title": "To our church"
     }
-
   },
   "header_menu": {
     "home": "Home",
@@ -14,5 +13,27 @@
     "news_events": "News & events",
     "testimonials": "Testimonials",
     "donate": "Donate"
+  },
+  "footer": {
+    "about": {
+      "title": "ABOUT",
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste, id? Laborum voluptas consequatur cumque, ad, voluptate eum accusamus nostrum adipisci obcaecati, corporis incidunt repellendus minus enim similique quia doloribus doloremque non. Cupiditate, quo perspiciatis!"
+    },
+    "links_title": "MAIN LINKS",
+    "links": {
+      "home": "Home",
+      "about": "About Church",
+      "ministries": "Ministries",
+      "news": "News",
+      "events": "Events",
+      "donate": "Donate"
+    },
+    "follow": {
+      "title": "FOLLOW US"
+    },
+    "contact": {
+      "title": "CONTACT US",
+      "address": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim voluptates ab rem, magni mollitia quidem!"
+    }
   }
 }

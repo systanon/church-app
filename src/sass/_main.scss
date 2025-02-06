@@ -4,22 +4,26 @@
 
 h1 {
   @include typography("h1");
-  color: $primary-color;
 }
 
 h2 {
   @include typography("h2");
-  color: $primary-color;
 }
 
 h3 {
   @include typography("h3");
-  color: $primary-color;
+}
+
+h4 {
+  @include typography("h4");
+}
+
+h5 {
+  @include typography("h5");
 }
 
 p {
   @include typography("body");
-  color: $primary-color;
 }
 
 .adaptive-title {

@@ -60,7 +60,65 @@ export const mainMenu: NavigationMenu = [
   // },
 
 ];
+export const footerNavMenu: NavigationMenu = [
+  {
+    path: "/",
+    text: "Home",
+    i18n_key: "home",
+    routeName: "PageHome",
+    icon: "",
+    showMode: "all",
+  },
+  {
+    path: "/about",
+    text: "About",
+    i18n_key: "about",
+    routeName: "AboutPage",
+    icon: "",
+    showMode: "all",
+  },
+  {
+    path: "/ministries",
+    text: "Ministries",
+    i18n_key: "ministries",
+    routeName: "MinistriesPage",
+    icon: "",
+    showMode: "all",
+  },
+  // {
+  //   path: "/gallery",
+  //   text: "Galerry",
+  //   i18n_key: "gallery",
+  //   routeName: "GalleryPage",
+  //   icon: "",
+  //   showMode: "all",
+  // },
+  {
+    path: "/news",
+    text: "News",
+    i18n_key: "news",
+    routeName: "NewsPage",
+    icon: "",
+    showMode: "all",
+  },
+  {
+    path: "/events",
+    text: "Events",
+    i18n_key: "events",
+    routeName: "EventsPage",
+    icon: "",
+    showMode: "all",
+  },
+  {
+    path: "/donate",
+    text: "donate",
+    i18n_key: "donate",
+    routeName: "DonatePage",
+    icon: "",
+    showMode: "all",
+  },
 
+];
 export const mapperMainMenu = {
   authorized: true,
   unauthorized: false,
