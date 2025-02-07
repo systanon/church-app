@@ -17,8 +17,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <router-view class="app-router" />
-  <AppFooter class="app-footer" />
+  <router-view />
+  <AppFooter />
 </template>
 
 <style lang="scss">
@@ -28,10 +28,6 @@ body,
   height: 100%;
 }
 
-#app {
-  display: grid;
-  grid-template-rows: 1fr auto;
-}
 
 body {
   font-family: 'Montserrat', sans-serif;

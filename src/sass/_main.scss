@@ -1,5 +1,6 @@
 @use './typography' as *;
 @use './colors' as *;
+@use './vars' as *;
 
 
 h1 {
@@ -28,4 +29,55 @@ p {
 
 .adaptive-title {
   @include responsive-text(2rem, 4rem);
+}
+
+.bold-text {
+  font-weight: bold
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+.divider {
+  position: relative;
+  padding-bottom: 0.5rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2.625rem;
+    height: 0.188rem;
+    background-color: $divider-primary-color;
+    z-index: -1;
+  }
+}
+
+
+
+@include media-query('desktop') {
+  .container {
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 1.875rem;
+    & > * {
+      grid-column: 2/16;
+    }
+  }
+}
+
+@include media-query('large-desktop') {
+  .container {
+    display: grid;
+    padding: 0;
+    grid-template-columns: repeat(20, 1fr);
+    gap: 1.875rem;
+    & > * {
+      grid-column: 5/17;
+    }
+  }
 }

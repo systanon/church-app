@@ -15,6 +15,18 @@
     "testimonials": "Testimonials",
     "donate": "Donate"
   },
+  "home_page": {
+    "block1":{
+      "sub-title": "ABOUT",
+      "title": {
+        "bolt-text": "New Life ",
+        "other-text":  "is a church that believes in Jesus Crist"
+      },
+      "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dicta, ullam eaque enim ea praesentium, veniam culpa sed pariatur, molestias perspiciatis quo possimus!",
+      "btn-text": "Read more"
+
+    }
+  },
   "footer": {
     "about": {
       "title": "ABOUT",
