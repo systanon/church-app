@@ -2,7 +2,8 @@ import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import vue from '@vitejs/plugin-vue';
 import { fileURLToPath, URL } from 'node:url';
-import { resolve } from 'node:path';
+import { resolve, dirname } from 'node:path';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite'
 
 import { getSVGSymbolsString } from './scripts/svg';
 
@@ -29,7 +30,13 @@ export default defineConfig( async ({}) => {
             }
           ]
         }
-      })
+      }),
+      VueI18nPlugin({
+        include: resolve(dirname(fileURLToPath(import.meta.url)), './src/locales/**'),
+        runtimeOnly: false,
+        compositionOnly: true, 
+        fullInstall: true,
+      }),
     ],
     resolve: {
       alias: {
