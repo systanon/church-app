@@ -24,6 +24,7 @@
 <style lang="scss" scoped>
   .app-header {
     height: 25%;
+    min-height: 250px;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -36,7 +37,8 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-
+      padding-bottom: 2rem;
+      
     }
   }
 
