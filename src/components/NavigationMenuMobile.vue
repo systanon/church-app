@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { byAuthorized, mainMenu, NavigationMenu } from "@/config/navigation";
+import { byAuthorized, mainMenu, type NavigationMenu } from "@/config/navigation";
 import UIButtonIcon from '@/components/ui/UIButtonIcon.vue'
 
 export default defineComponent({

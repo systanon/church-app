@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { byAuthorized, footerNavMenu, NavigationMenu } from "@/config/navigation";
+import { byAuthorized, footerNavMenu, type NavigationMenu } from "@/config/navigation";
 
 
 export default defineComponent({
