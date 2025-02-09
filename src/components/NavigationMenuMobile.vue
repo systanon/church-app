@@ -1,17 +1,23 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
-import { byAuthorized, mainMenu, type NavigationMenu } from "@/config/navigation";
-import UIButtonIcon from '@/components/ui/UIButtonIcon.vue'
+import { defineComponent, type Directive } from 'vue';
+import { vOnClickOutside as baseOnClickOutside } from '@vueuse/components';
+import { byAuthorized, mainMenu, type NavigationMenu } from '@/config/navigation';
+import UIButtonIcon from '@/components/ui/UIButtonIcon.vue';
+
+const vOnClickOutside: Directive = baseOnClickOutside;
 
 export default defineComponent({
-  name: "NavigationMenuMobile",
+  name: 'NavigationMenuMobile',
   components: {
-    UIButtonIcon
+    UIButtonIcon,
+  },
+  directives: {
+    onClickOutside: vOnClickOutside,
   },
   data() {
     return {
-      isNavOpen: false
-    }
+      isNavOpen: false,
+    };
   },
 
   computed: {
@@ -22,18 +28,20 @@ export default defineComponent({
   methods: {
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
-    }
-  }
-})
+    },
+    close() {
+      this.isNavOpen = false;
+    },
+  },
+});
 </script>
 
 <template>
   <nav class="app-nav">
     <UIButtonIcon class="app-nav__burger-menu" @click="toggleNav" iconName="burger-menu" />
     <a class="app-nav__logo">LOGO </a>
-
   </nav>
-  <aside class="app-navigation" :class="{ open: isNavOpen }">
+  <aside class="app-navigation" :class="{ open: isNavOpen }" v-on-click-outside="close">
     <UIButtonIcon @click="toggleNav" iconName="close-square" />
     <ul class="navigation-menu">
       <li v-for="{ path, i18n_key } in navigationList" :key="path"
@@ -44,17 +52,18 @@ export default defineComponent({
   </aside>
 </template>
 
-
 <style lang="scss" scoped>
 .app-nav {
   padding: 1rem;
   display: flex;
   align-items: center;
+
   &__burger-menu {
     background-color: transparent;
     transition: opacity 0.3s ease-in-out;
     color: $primary-color;
   }
+
   &__logo {
     padding-left: 2rem;
   }
