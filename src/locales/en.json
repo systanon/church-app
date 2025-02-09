@@ -25,6 +25,13 @@
       "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit dicta, ullam eaque enim ea praesentium, veniam culpa sed pariatur, molestias perspiciatis quo possimus!",
       "btn-text": "Read more"
 
+    },
+    "block2": {
+      "title": {
+        "bold-text": "... I will build My church,",
+        "other-text": "and the gates of Hades\nwill not prevail against it"
+      },
+      "sub-title": "Matthew 16:18" 
     }
   },
   "footer": {

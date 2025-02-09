@@ -52,8 +52,11 @@ p {
     width: 2.625rem;
     height: 0.188rem;
     background-color: $divider-primary-color;
-    z-index: -1;
   }
+}
+
+.pre-line {
+  white-space: pre-line;
 }
 
 
