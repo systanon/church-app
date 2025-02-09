@@ -68,7 +68,7 @@ export default defineComponent({
   align-items: end;
   gap: 1em;
   height: 100%;
-  width: 20%;
+  width: 25%;
   position: fixed;
   top: 0;
   left: 0;
@@ -77,9 +77,11 @@ export default defineComponent({
   z-index: 10;
 
   .navigation-menu {
+    width: 100%;
     color: $text-color;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
 
     &__item {
