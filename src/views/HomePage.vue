@@ -153,6 +153,7 @@ export default defineComponent({
 
   &__title {
     text-align: center;
+    margin-bottom: 2.5rem;
   }
 }
 
