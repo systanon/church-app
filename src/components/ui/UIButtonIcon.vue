@@ -29,5 +29,6 @@ export default defineComponent({
   align-items: center;
   cursor: pointer;
   overflow: hidden;
+  background: none;
 }
 </style>
