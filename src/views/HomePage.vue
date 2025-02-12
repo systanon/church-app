@@ -4,6 +4,8 @@ import YouthMinistry from '@/components/ministries/YouthMinistry.vue';
 import TabMenu, { type TabItem } from '@/components/TabMenu.vue';
 import UIButton from '@/components/ui/UIButton.vue';
 import { tabMinistries, TabKeys } from '@/config/tabs'
+import UITizerGallery from '@/components/ui/UITizerGallery.vue';
+import {useTizerGallery} from '@/config/tizerGallery'
 
 export default defineComponent({
   name: 'HomePage',
@@ -11,11 +13,13 @@ export default defineComponent({
     UIButton,
     YouthMinistry,
     TabMenu,
+    UITizerGallery
   },
   setup() {
+    const gallery = useTizerGallery()
     const { WOMEN, YOUTH, CHILDREN, WORSHIP, PRISON } = TabKeys
 
-    return { WOMEN, YOUTH, CHILDREN, WORSHIP, PRISON }
+    return { WOMEN, YOUTH, CHILDREN, WORSHIP, PRISON, gallery }
   },
   computed: {
     tablist(): TabItem[] {
@@ -73,6 +77,9 @@ export default defineComponent({
       </template>
     </TabMenu>
 
+  </section>
+  <section>
+    <UITizerGallery :gallery="gallery"/>
   </section>
 </template>
 
