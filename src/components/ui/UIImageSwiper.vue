@@ -10,7 +10,7 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import UIImage from './UIImage.vue';
-
+//TODO: fix in ts config import css
 import 'swiper/css';
 
 import 'swiper/css/pagination';
