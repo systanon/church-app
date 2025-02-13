@@ -1,0 +1,23 @@
+@use './colors' as *;
+@mixin swiper-button {
+  color: grey;
+  background-color: $swiper-btn-color;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+@mixin swiper-button-hover {
+  background-color: $swiper-btn-hover;
+  transform: scale(1.1);
+}
+
+@mixin swiper-button-icon {
+  font-size: 1.5rem;
+}

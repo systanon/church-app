@@ -65,50 +65,19 @@ export default {
   align-items: center;
 }
 
-:deep(.swiper-button-next) {
-  color: grey;
-  background-color: $swiper-btn-color;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background-color 0.3s, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  cursor: pointer;
-}
-
+:deep(.swiper-button-next),
 :deep(.swiper-button-prev) {
-  color: grey;
-  background-color: $swiper-btn-color;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  transition: background-color 0.3s, transform 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10;
-  cursor: pointer;
+  @include swiper-button;
 }
 
-:deep(.swiper-button-next:hover) {
-  background-color: $swiper-btn-hover;
-  transform: scale(1.1);
-}
-
+:deep(.swiper-button-next:hover),
 :deep(.swiper-button-prev:hover) {
-  background-color: $swiper-btn-hover;
-  transform: scale(1.1);
+  @include swiper-button-hover;
 }
 
-:deep(.swiper-button-next::after) {
-  font-size: 1.5rem;
-}
-
+:deep(.swiper-button-next::after),
 :deep(.swiper-button-prev::after) {
-  font-size: 1.5rem;
+  @include swiper-button-icon;
 }
 
 :deep(.swiper-pagination-fraction) {
