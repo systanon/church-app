@@ -11,7 +11,11 @@
       <UIButtonIcon class="close-button" @click="closePopup" iconName="close-square" />
       <div class="popup-content" @click.stop>
        
-        <UIImageSwiper :images="gallery[currentIndex].images" />
+        <UIImageSwiper :images="gallery[currentIndex].images" >
+          <template v-slot={item}>
+            <UIImage :src="item" />
+          </template>
+        </UIImageSwiper>
       </div>
     </div>
   </div>

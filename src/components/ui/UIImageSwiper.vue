@@ -3,14 +3,13 @@
     type: 'fraction',
   }" :navigation="isDesktop || isLargeDesktop" :modules="modules">
     <swiper-slide v-for="image of images">
-      <UIImage :src="image" :width="width" :height="height" />
+      <slot :item="image"></slot>
     </swiper-slide>
   </swiper>
 </template>
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { useInjectWindowResize } from '@/composables/useWindowResize';
-import UIImage from './UIImage.vue';
 //TODO: fix in ts config import css
 import 'swiper/css';
 
@@ -32,14 +31,6 @@ export default {
       type: Array,
       default: []
     },
-    width: {
-      type: [Number, String],
-      default: ''
-    },
-    height: {
-      type: [Number, String],
-      default: ''
-    }
   },
   setup() {
     const { isDesktop, isLargeDesktop } = useInjectWindowResize();
