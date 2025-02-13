@@ -55,7 +55,8 @@ const closePopup = () => {
     left: 0;
     width: 100%;
     height: 100%;
-    background: $backdrop-bg;
+    background: $overlay;
+    z-index: 10;
   }
   .popup-content {
     height: 100%;
@@ -71,11 +72,6 @@ const closePopup = () => {
   }
 } 
 
-@include media-query('mobile') {
-  .app-gallery .popup-overlay {
-    position: absolute;
-  }
-}
 @include media-query('desktop') {
   .app-gallery {
     grid-template-columns: repeat(3,1fr);

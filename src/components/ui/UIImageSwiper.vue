@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .swiper {
   width: 100%;
 
@@ -63,5 +63,37 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: grey;
+  background-color: $swiper-btn-color;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: $swiper-btn-hover;
+  transform: scale(1.1);
+}
+
+.swiper-button-next::after {
+  font-size: 1.5rem;
+}
+
+.swiper-button-prev::after {
+  font-size: 1.5rem;
+}
+.swiper-pagination-fraction {
+  color: $primary-color;
 }
 </style>
