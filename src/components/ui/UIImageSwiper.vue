@@ -1,7 +1,7 @@
 <template>
   <swiper :pagination="{
     type: 'fraction',
-  }" :navigation="true" :modules="modules" class="mySwiper">
+  }" :navigation="isDesktop || isLargeDesktop" :modules="modules" class="mySwiper">
     <swiper-slide v-for="image of images">
       <UIImage :src="image" :width="width" :height="height"/>
     </swiper-slide>
@@ -9,6 +9,7 @@
 </template>
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
+import { useInjectWindowResize } from '@/composables/useWindowResize';
 import UIImage from './UIImage.vue';
 //TODO: fix in ts config import css
 import 'swiper/css';
@@ -41,7 +42,10 @@ export default {
     }
   },
   setup() {
+    const { isDesktop, isLargeDesktop } = useInjectWindowResize();
     return {
+      isDesktop,
+      isLargeDesktop,
       modules: [Pagination, Navigation],
     };
   },
