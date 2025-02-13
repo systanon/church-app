@@ -1,9 +1,9 @@
 <template>
   <swiper :pagination="{
     type: 'fraction',
-  }" :navigation="isDesktop || isLargeDesktop" :modules="modules" class="mySwiper">
+  }" :navigation="isDesktop || isLargeDesktop" :modules="modules">
     <swiper-slide v-for="image of images">
-      <UIImage :src="image" :width="width" :height="height"/>
+      <UIImage :src="image" :width="width" :height="height" />
     </swiper-slide>
   </swiper>
 </template>
@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .swiper {
   width: 100%;
 
@@ -65,8 +65,7 @@ export default {
   align-items: center;
 }
 
-.mySwiper .swiper-button-next,
-.mySwiper .swiper-button-prev {
+:deep(.swiper-button-next) {
   color: grey;
   background-color: $swiper-btn-color;
   width: 40px;
@@ -80,20 +79,39 @@ export default {
   cursor: pointer;
 }
 
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
+:deep(.swiper-button-prev) {
+  color: grey;
+  background-color: $swiper-btn-color;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transition: background-color 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+}
+
+:deep(.swiper-button-next:hover) {
   background-color: $swiper-btn-hover;
   transform: scale(1.1);
 }
 
-.swiper-button-next::after {
+:deep(.swiper-button-prev:hover) {
+  background-color: $swiper-btn-hover;
+  transform: scale(1.1);
+}
+
+:deep(.swiper-button-next::after) {
   font-size: 1.5rem;
 }
 
-.swiper-button-prev::after {
+:deep(.swiper-button-prev::after) {
   font-size: 1.5rem;
 }
-.swiper-pagination-fraction {
+
+:deep(.swiper-pagination-fraction) {
   color: $primary-color;
 }
 </style>
